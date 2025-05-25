@@ -13,14 +13,20 @@ body {
 }
 
   
-  .login-container,
-  .signup-container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Container */
+.login-container {
+    position: relative;
+    width: 400px;
+    height: 380px;
     padding: 40px;
-    width: 40px;
-  }
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    text-align: left;
+    background: none; /* remove direct background */
+    z-index: 1; /* keep above the background layer */
+}
+
   
   .login-form,
   .signup-form {
