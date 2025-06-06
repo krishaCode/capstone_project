@@ -34,5 +34,40 @@
   </form>
 </div>
 
+<script>
+  const db = firebase.database();
+  const urlParams = new URLSearchParams(window.location.search);
+  const editId = urlParams.get('edit');
+
+  if (editId) {
+    db.ref("RACKS/" + editId).once("value", (snap) => {
+      const data = snap.val();
+      document.getElementById("userId").value = data.user_id;
+      document.getElementById("sensorId").value = data.sensor_id;
+      document.getElementById("rackNo").value = data.rack_no;
+      document.getElementById("product_id").value = data.product_id;
+      document.getElementById("weight_level").value = data.weight_level;
+    });
+  }
+
+  document.getElementById("rackForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const rackData = {
+      user_id: document.getElementById("userId").value,
+      sensor_id: document.getElementById("sensorId").value,
+      rack_no: document.getElementById("rackNo").value,
+      product_id: document.getElementById("product_id").value,
+      weight_level: parseFloat(document.getElementById("weight_level").value)
+    };
+
+    if (editId) {
+      db.ref("RACKS/" + editId).set(rackData).then(() => location.href = "rack-item.php");
+    } else {
+      db.ref("RACKS").push(rackData).then(() => location.href = "rack-item.php");
+    }
+  });
+</script>
+
 </body>
 </html>
