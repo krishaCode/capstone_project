@@ -71,3 +71,22 @@
 
 </body>
 </html>
+
+
+/* Existing-p.css */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
