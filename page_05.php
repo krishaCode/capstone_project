@@ -73,7 +73,7 @@
 </html>
 
 
-/* Existing-p.css */
+
 * {
   box-sizing: border-box;
 }
@@ -90,3 +90,33 @@ body {
   background: url('background.jpg') no-repeat center center fixed;
   background-size: cover;
 }
+
+
+  .form-container {
+    position: relative;
+    width: 350px;
+    height: fit-content;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    text-align: left;
+    background: none; /* remove direct background */
+    z-index: 1; /* keep above the background layer */
+}
+
+/* Background image layer */
+.form-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('form-background.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3; /* lower opacity for background only */
+    z-index: 0;
+    pointer-events: none; /* allows clicks to pass through */
+}
+  
