@@ -119,4 +119,38 @@ body {
     z-index: 0;
     pointer-events: none; /* allows clicks to pass through */
 }
-  
+ 
+.form-container h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px #000;
+  text-align: center;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5e6df7;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #4a58d4;
+}
+
