@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Product</title>
+  <link rel="stylesheet" href="product-add.css">
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="form-handler.js" defer></script>
+</head>
+<body>
+  <div class="back-button">
+    <a href="dashboard.php"><span>&larr;</span></a>
+  </div>
+
+  <div class="form-container">
+    <h2>New Product</h2>
+    <form id="productForm">
+      <input type="text" id="rack_no" placeholder="Rack No" required>
+      <input type="text" id="product_id" placeholder="Product ID" required>
+      <input type="text" id="product" placeholder="Product Name" required>
+      <input type="number" step="any" id="weight" placeholder="Product Weight (Kg)" required>
+      <input type="text" id="userId" placeholder="User ID" required>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
