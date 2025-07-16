@@ -1,21 +1,32 @@
+/* Reset & Base Styles */
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    background-color: #f5f5f5;
-  }
+    align-items: center;
+    justify-content: center;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
   
-  .login-container,
-  .signup-container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Container */
+.login-container {
+    position: relative;
+    width: 400px;
+    height: 380px;
     padding: 40px;
-    width: 300px;
-  }
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    text-align: left;
+    background: none; /* remove direct background */
+    z-index: 1; /* keep above the background layer */
+}
+
   
   .login-form,
   .signup-form {
