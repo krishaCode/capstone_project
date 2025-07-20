@@ -98,4 +98,104 @@ if (
                 <li>
                     <a href="existing-product.php">
                         <i class="fa fa-briefcase site-nav-icon"></i>Existing Product</a>
-               
+               </li>
+                <li>
+                    <a href="products.php">
+                        <i class="fa fa-envelope site-nav-icon"></i>Products</a>
+                </li>
+                <li>
+                    <a href="rack-item.php">
+                        <i class="fa fa-envelope site-nav-icon"></i>Rack Item</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Menu btn that toggles onClick and changes appearance ( .menu-toggle CSS ) -->
+        <div class="menu-toggle">
+            <div class="hamburger"></div>
+        </div>
+    </div>
+</header>
+
+
+
+    <main class="main">
+        <div class="form-container" data-aos="fade-up">
+            <div class="form-header">
+                <h2><i class="bi bi-plus-circle"></i> Update Existing Product</h2>
+                <p class="mb-0">Existing product , "View ,manage and update all your Existing product listings easily"</p>
+            </div>
+            
+            <?php if ($success_message): ?>
+                <div class="alert alert-success" id="successAlert">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <?php echo $success_message; ?>
+                </div>
+            <?php endif; ?>
+            
+            <?php if ($error_message): ?>
+                <div class="alert alert-error" id="errorAlert">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <?php echo $error_message; ?>
+                </div>
+            <?php endif; ?>
+            
+            <div class="form-body">
+                <form method="POST" enctype="multipart/form-data">
+                    <!-- Hidden field for current user name -->
+                    <input type="hidden" name="created_by" id="created_by" value="admin">
+
+                     <div class="form-group">
+                        <label for="User_ID" class="form-label">
+                            <i class="bi bi-box-seam"></i> User ID
+                        </label>
+                        <input type="text" name="User_ID" id="User_ID" class="form-control" placeholder="Enter User ID..." required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Sensor_ID" class="form-label">
+                            <i class="bi bi-box-seam"></i> Sensor ID
+                        </label>
+                        <input type="text" name="Sensor_ID" id="Sensor_ID" class="form-control" placeholder="Enter Sensor ID..." required />
+                    </div>
+                        
+                        <div class="form-group">
+                        <label for="Rack_No" class="form-label">
+                            <i class="bi bi-box-seam"></i> Rack No
+                        </label>
+                        <input type="text" name="Rack_No" id="Rack_No" class="form-control" placeholder="Enter Rack No..." required />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="Product_ID" class="form-label">
+                            <i class="bi bi-box-seam"></i> Product ID
+                        </label>
+                        <input type="text" name="Product_ID" id="Product_ID" class="form-control" placeholder="Enter Product ID to auto-fill product name if it exists..." required onblur="checkProductID()" />
+                        
+                    </div>
+                    
+                   <div class="form-group">
+                        <label for="Product_Name" class="form-label">
+                            <i class="bi bi-box-seam"></i> Product Name
+                        </label>
+                        <input type="text" name="Product_Name" id="Product_Name" class="form-control" placeholder="Enter Product Name..." required />
+                        <small id="product-status" class="form-text"></small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="Weight_Level" class="form-label">
+                            <i class="bi bi-box-seam"></i> Low Weight Threshold(Kg)
+                        </label>
+                        <input type="text" name="Weight_Level" id="Weight_Level" class="form-control" placeholder="Enter Weight Level..." required />
+                        <small class="form-text text-muted">Alert will be triggered when weight drops below this value</small>
+                    </div>
+                    
+                    
+                    <div class="text-center mt-4">
+                        <button type="submit" name="Update_product" class="btn-submit">
+                            <i class="bi bi-plus-circle"></i> Update Product
+                        </button>
+                    </div>
+
+                    
+                
