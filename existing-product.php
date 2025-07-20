@@ -196,6 +196,111 @@ if (
                             <i class="bi bi-plus-circle"></i> Update Product
                         </button>
                     </div>
+                    </form>
+                </div>
+            </div>
+    </main>
 
+    <!-- Vendor JS Files -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/aos/aos.js"></script>
+    
+    <!-- Main JS File -->
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyApZbf0d5o7EM-n6G43ZCca62z52masNz4",
+            authDomain: "capstone-f46be.firebaseapp.com",
+            databaseURL: "https://capstone-f46be-default-rtdb.firebaseio.com/",
+            projectId: "capstone-f46be",
+            storageBucket: "capstone-f46be.appspot.com",
+            messagingSenderId: "631924495249",
+            appId: "123456789"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const database = firebase.database();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'slide'
+        });
+
+        // Check authentication and set user name
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                console.log('User authenticated:', user.uid);
+                loadUserNameForForm(user.uid);
+            } else {
+                // Redirect to login if not authenticated
+                window.location.href = '../login.php';
+            }
+        });
+
+        function loadUserNameForForm(uid) {
+            const adminRef = database.ref('admins/' + uid);
+            adminRef.once('value').then((snapshot) => {
+                if (snapshot.exists()) {
+                    const adminData = snapshot.val();
+                    const currentUser = firebase.auth().currentUser;
+                    const userName = adminData.fullname || 
+                                   (currentUser && currentUser.displayName) || 
+                                   adminData.displayName || 
+                                   adminData.name || 
+                                   'Admin';
                     
+                    // Set the hidden field value
+                    document.getElementById('created_by').value = userName;
+                    console.log('Set created_by field to:', userName);
+                }
+            }).catch((error) => {
+                console.error('Error loading admin data:', error);
+                // Keep default 'admin' value if error
+            });
+        }
+
+        // Function to check if Product ID exists and auto-fill product name
+        function checkProductID() {
+            const productIDInput = document.getElementById('Product_ID');
+            const productNameInput = document.getElementById('Product_Name');
+            const statusElement = document.getElementById('product-status');
+            const productID = productIDInput.value.trim();
+            
+            if (productID === '') {
+                productNameInput.value = '';
+                statusElement.innerHTML = '';
+                return;
+            }
+            
+            // Show loading message
+            statusElement.innerHTML = '<i class="bi bi-arrow-clockwise spin"></i> Checking Product ID...';
+            statusElement.className = 'form-text text-info';
+            
+            // Fetch products from Firebase
+            const productsRef = database.ref('products');
+            productsRef.once('value').then((snapshot) => {
+                let productFound = false;
                 
+                if (snapshot.exists()) {
+                    const products = snapshot.val();
+                    
+                    // Search for matching product ID
+                    Object.keys(products).forEach(key => {
+                        const product = products[key];
+                        if (product.product_ID && product.product_ID.toLowerCase() === productID.toLowerCase()) {
+                            // Product found - auto-fill the name
+                            productNameInput.value = product.product_name || '';
+                            statusElement.innerHTML = '<i class="bi bi-check-circle-fill"></i> Product found! Name auto-filled.';
+                            statusElement.className = 'form-text text-success';
+                            productFound = true;
+                            return;
+                        }
+                    });
+                }
+                
+               
