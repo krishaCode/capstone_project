@@ -303,4 +303,138 @@ if (
                     });
                 }
                 
-               
+               if (!productFound) {
+                    // Product not found
+                    productNameInput.value = '';
+                    statusElement.innerHTML = '<i class="bi bi-info-circle-fill"></i> Product ID not found. Please enter manually.';
+                    statusElement.className = 'form-text text-warning';
+                }
+            }).catch((error) => {
+                console.error('Error fetching products:', error);
+                statusElement.innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i> Error checking Product ID.';
+                statusElement.className = 'form-text text-danger';
+            });
+        }
+
+        // Auto-hide alerts after 5 seconds
+        setTimeout(function() {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function(alert) {
+                alert.style.transition = 'opacity 0.5s ease-out';
+                alert.style.opacity = '0';
+                setTimeout(function() {
+                    if (alert.parentNode) {
+                        alert.parentNode.removeChild(alert);
+                    }
+                }, 500);
+            });
+        }, 5000);
+    </script>
+    
+    <style>
+        .alert {
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .alert i {
+            font-size: 1.2em;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Product ID Check Styles */
+        .text-info {
+            color: #17a2b8 !important;
+        }
+        
+        .text-success {
+            color: #28a745 !important;
+        }
+        
+        .text-warning {
+            color: #ffc107 !important;
+        }
+        
+        .text-danger {
+            color: #dc3545 !important;
+        }
+        
+        .spin {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        #product-status {
+            font-weight: 500;
+            margin-top: 5px;
+        }
+        
+        #product-status i {
+            margin-right: 5px;
+        }
+    </style>
+
+<footer>
+<div class="footer">
+<div class="row">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-instagram"></i></a>
+<a href="#"><i class="fa fa-youtube"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+</div>
+
+<div class="row">
+<ul>
+<li><a href="dashboard.php">Dashboard</a></li>
+<li><a href="product-add.php">Product Add</a></li>
+<li><a href="existing-product.php">Existing Product</a></li>
+<li><a href="products.php">Products</a></li>
+<li><a href="rack-item.php">Rack Item</a></li>
+<li><a href="contactus.php">Contact US</a></li>
+</ul>
+</div>
+
+<div class="row">
+ Stockguard Management System Copyright © 2025 - All rights reserved 
+</div>
+</div>
+</footer>
+
+</body>
+</html>
+
+
+                    
+                
