@@ -1,99 +1,472 @@
+
+  .body {
+            margin: 0;
+            padding: 0px;
+        }
+        
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .main {
+            margin-top: 30px; /* Add space between header and main */
+            padding: 0px 0; /* Add padding to main content */
+            min-height: calc(100vh - 150px); /* Ensure proper height */
+        }
+        
+        .form-container {
+            margin: 0 auto;
+            padding: 20px;
+        }
+.login-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            min-height: 500px;
+            margin: 0 auto;
+        }
+
+
+         
+        .login-image {
+            flex: 1;
+            background: linear-gradient(135deg, #023f65, #00b3b3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .login-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../assets/img/logo.png') center/100px no-repeat;
+            opacity: 0.1;
+        }
+        
+        .login-image h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .login-image p {
+            font-size: 1.1rem;
+            text-align: center;
+            opacity: 0.9;
+        }
+        
+        .login-form {
+            flex: 1;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #00b3b3;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .form-subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #00b3b3;
+            background: white;
+            box-shadow: 0 0 0 0.2rem rgba(33, 160, 195, 0.25);
+        }
+        
+        .form-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00b3b3;
+            font-size: 18px;
+        }
+
+          .btn-login {
+            background: linear-gradient(135deg, #00b3b3, #00b3b3);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            width: 100%;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        
+        .btn-login:hover {
+            background: linear-gradient(135deg,#00b3b3, #027979);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .back-link a {
+            color: #00b3b3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link a:hover {
+            color: #00b3b3;
+        }
+/*--------------------------------------*/
+/*            Core Styles               */
+/*--------------------------------------*/
+
 body {
-    font-family: 'Arial', sans-serif;
-    color: white;
+    margin: 0;
+    padding:0;
+    background: #f2f2f2;
+    font-family: 'Montserrat', sans-serif;
+    min-width: 198px;
+}
+
+
+/*--------------------------------------*/
+/*    Contains Header, Nav, & Logo      */
+/*--------------------------------------*/
+
+.container {
+    width: 95%; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/*--------------------------------------*/
+/* HEADER: Position relative to help... */
+/*    ... poitioning elements absolute  */
+/*--------------------------------------*/
+
+header {
+    background: #4d4d4d;
+    padding: 1em 0;
+    position: relative;
+}
+
+/*------------------------------------------*/
+/* Allows multiple floats in same element   */
+/*------------------------------------------*/
+
+header::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/*--------------------------------------*/
+/*               LOGO                   */
+/*--------------------------------------*/
+
+.logo #logo-first {                  /* Effects the whole logo, but #logo-last has changes */
+    float: left;                    /* Starting position of "JASON" for logo */
+    color: #00b3b3;
+    font-size: 1rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.logo #logo-last {      /* Changes to the logo for "SUTTON", This is starting Position */
+    float: left;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #f2f2f2;
+    padding-bottom: 20px;
+}
+
+.logo:hover #logo-last {    /* Logo colors switch on hover */
+    margin: 0;
+    color: #00b3b3;
+}
+
+.logo:hover #logo-first {     /* Logo colors switch on hover */
+    margin: 0;
+    padding-bottom: 20px;
+    color: #f2f2f2;
+}
+
+/*--------------------------------------*/
+/*            Navigation                */
+/*--------------------------------------*/
+.site-nav {
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    background: #a6a6a6;
+    height: 0px;
+    overflow: hidden;
+}
+
+.site-nav-open {
+    height: auto;
+}
+
+.site-nav ul {
     margin: 0;
     padding: 0;
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    
+    list-style: none;  /* Removes li bullets */
 }
 
-.first_s {
-    position: relative;
-    width: fit-content;
-    height: fit-content;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    text-align: left;
-    background: none; /* remove direct background */
-    z-index: 1; /* keep above the background layer */
+.site-nav li {
+    border-bottom: 1px solid #8c8c8c;  /* border beneath nav li */
 }
 
-/* Background image layer */
-.first_s::before {
-    content: "";
+.site-nav li:last-child {     /* removes border from last nav li */
+    border: none;
+}
+
+.site-nav a {            /* Displays nav links as block for smaller screens */
+    color: #f2f2f2;
+    display: block;
+    padding: 2em 2em 2em 1.5em;  /* padding for links */
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.site-nav a:hover,         /* hover is for computers and focus is for mobile */
+.site-nav a:focus {
+    background: #00b3b3;
+    color: #4d4d4d;
+}
+
+/*--------------------------------------*/
+/*   ICON styling for smaller screens   */
+/*--------------------------------------*/ 
+
+.site-nav-icon  {
+    display: inline-block;   /* allows margin changes */
+    font-size: 1.5em;
+    margin-right: 1em;
+    width: 1em;           /* width lines the icons up */
+    text-align: right;  
+    color: rgba(255, 255, 255, .35);  /* white with low opacity to make icons less bright */
+}
+
+/*--------------------------------------*/
+/* Acts as btn & contains hamburger     */
+/*--------------------------------------*/
+
+.menu-toggle {
+    padding: 1em;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('form-background.jpg') no-repeat center center;
-    background-size: cover;
-    opacity: 0.3; /* lower opacity for background only */
-    z-index: 0;
-    pointer-events: none; /* allows clicks to pass through */
+    top: 1.7em;
+    right: 1em;
+    cursor: pointer;
 }
 
 
-.message{
-    background-color: rgb(255, 255, 255);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 9px 9px 9px rgba(0, 0, 0, 0.1);
-    height: 5PX;
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+/*--------------------------------------*/
+/*   Styles the hamburger for btn       */
+/*--------------------------------------*/
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content:'';
+    display: block;
+    background: #00b3b3;
+    height: 3px;
+    width: 1.75em;
+    border-radius: 2px;
+    transition: all ease-in-out 500ms;
 }
 
-.date{
-    background-color: rgb(255, 255, 255);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 5PX;
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    text-align: center;
-    
+/*--------------------------------------*/
+/* Instance of hamburger (top line)     */
+/*--------------------------------------*/
+
+.hamburger::before {
+    transform: translateY(-7px);
 }
 
-.time{
-    background-color:  rgb(255, 255, 255);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 5PX;
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    text-align: center;
+/*--------------------------------------*/
+/* Instance of hamburger bottom line    */
+/*--------------------------------------*/
+
+.hamburger::after {
+    transform: translateY(4px);
 }
 
-.messsage_l{
-    background-color: rgb(255, 255, 255);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 5PX;
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
+/*--------------------------------------*/
+/* When Nav menu is open, hamburger = X */
+/*--------------------------------------*/
+
+.open .hamburger {
+    transform: rotate(45deg);
+    background: #ffc299;
 }
-a {
-    text-decoration: none;
+
+/*--------------------------------------*/
+/* Before hamburger line is invisible   */
+/*--------------------------------------*/
+.open .hamburger::before {
+    opacity: 0;            
+}
+
+/*--------------------------------------*/
+/* Animates after line to create an X   */
+/*--------------------------------------*/
+.open .hamburger::after {
+    transform: translateY(-3px) rotate(-90deg);
+    background: #ffc299;
+}
+
+
+
+
+/*--------------------------------------*/
+/*    For Device (Screens > 700px )     */
+/*--------------------------------------*/
+@media (min-width:700px) {
+
+    .menu-toggle {       /* Removes hamburger menu */
+        display: none;
+    }
+
+    .site-nav {         /* Positions site nav & removes background color */
+        height: auto;
+        position: relative;
+        background: transparent;
+        float: right;
+        font-weight: 300;
+    }
+
+    .site-nav li {               /* inline-block and removes border from bottom */
+        display: inline-block;
+        border: none;
+    }
+
+    .site-nav a {       /* Adds spacing between Nav links */
+        padding: 0;
+        margin-left: 3em;
+    }
+
+    .site-nav a:hover,      /* Makes link background transparent on hover */
+    .site-nav a:focus {        /* Changes font color to light blue */
+        background: transparent;
+        font-weight: 800;
+        color: #00b3b3;
+    }
+
+    .site-nav .site-nav-icon {     /* Removes Font Awesome Icons for larger screens */
+        display: none;
+    }
+
+
+}
+
+body{
+margin:0;
+overflow-x:hidden;
+}
+
+.footer{
+background:#4D4D4D;
+padding:30px 0px;
+text-align:center;
+}
+
+.footer .row{
+width:100%;
+margin:1% 0%;
+padding:0.6% 0%;
+color:rgb(255, 255, 255);
+font-size:0.8em;
+}
+
+.footer .row a{
+text-decoration:none;
+color:rgb(255, 255, 255);
+transition:0.5s;
+}
+
+.footer .row a:hover{
+color:#00b3b3;
+}
+
+.footer .row ul{
+width:100%;
+}
+
+.footer .row ul li{
+display:inline-block;
+margin:0px 30px;
+}
+
+.footer .row a i{
+font-size:2em;
+margin:0% 1%;
+}
+
+@media (max-width:720px){
+.footer{
+text-align:left;
+padding:5%;
+}
+.footer .row ul li{
+display:block;
+margin:10px 0px;
+text-align:left;
+}
+.footer .row a i{
+margin:0% 3%;
+}
 }
