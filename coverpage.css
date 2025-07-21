@@ -1,76 +1,224 @@
+/* Reset and base styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: black;
-  }
-  
-  
-  .cover {
-    background-image: url('images/cover.jpg'); 
-    background-color: rgba(0, 0, 0, 0.5);
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    color: white;
-    display: flex;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fcfafa;
+}
+
+/* Container for whole page */
+.slide {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar styles */
+.navbar {
+  flex-shrink: 0;
+  padding: 20px 60px;
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Homepage main section */
+.homepage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 40px;
+}
+
+.text-section {
+  flex: 1;
+  max-width: 500px;
+}
+
+.text-section h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.text-section p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: rgb(16, 185, 137);
+  color: white;
+  border: none;
+}
+
+.secondary {
+  border: 2px solid rgb(21, 196, 155);
+  color: rgb(21, 196, 155);
+  background: transparent;
+}
+
+/* Image section */
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.image-section img {
+  max-width: 65%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #111;
+  color: #ddd;
+  padding: 40px 20px 20px;
+  font-size: 14px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-section h3 {
+  color: #00cba9;
+  margin-bottom: 15px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #00cba9;
+}
+
+.footer-section p {
+  margin: 8px 0;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #00cba9;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Footer bottom copyright */
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  margin-top: 20px;
+  color: #777;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .homepage {
     flex-direction: column;
-    justify-content: space-between;
+    text-align: center;
   }
-  
- 
-  nav {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .image-section {
+    display: none;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
     align-items: center;
   }
-  
-  nav .logo {
-    font-size: 24px;
-    font-weight: bold;
+
+  .footer-section {
+    margin-bottom: 20px;
   }
-  
-  nav ul {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  nav ul li a:hover {
-    text-decoration: underline;
-  }
- 
-  .main-header {
-    text-align: center;
-    margin-top: 150px;
-    color: black; 
-  }
-  
-  .main-header h1 {
-    font-size: 48px;
-  }
-  
-  .main-header p {
-    font-size: 20px;
-  }
-  
-  
-  footer {
-    background-color: rgba(0, 0, 0, 0.6);
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-  }
+}

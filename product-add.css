@@ -1,0 +1,490 @@
+body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, #00b3b3, #00b3b3);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .form-body {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .form-body form {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .category-info {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 700px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #2c5530;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .form-label i {
+            margin-right: 8px;
+            color: #00b3b3;
+        }
+        
+        .form-control, .form-select {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 12px 15px;
+            transition: all 0.3s;
+            width: 150%;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: #00b3b3;
+            box-shadow: 0 0 0 0.2rem #00b3b3(76, 175, 80, 0.25);
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, #00b3b3, #04e3e3);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-weight: 600;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+            transition: all 0.3s;
+        }
+        
+        .text-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #399fde, #399fde);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .form-help {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .form-control[type="file"] {
+            padding: 8px 12px;
+        }
+        
+        .form-control[type="file"]::-webkit-file-upload-button {
+            background: #00b3b3;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+        .form-control[type="file"]::-webkit-file-upload-button:hover {
+            background: #00b3b3;
+        }
+
+        /* Ensure border-box is used */
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+
+/*--------------------------------------*/
+/*            Core Styles               */
+/*--------------------------------------*/
+
+body {
+    margin: 0;
+    padding:0;
+    background: #f2f2f2;
+    font-family: 'Montserrat', sans-serif;
+    min-width: 198px;
+}
+
+
+/*--------------------------------------*/
+/*    Contains Header, Nav, & Logo      */
+/*--------------------------------------*/
+
+.container {
+    width: 95%; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/*--------------------------------------*/
+/* HEADER: Position relative to help... */
+/*    ... poitioning elements absolute  */
+/*--------------------------------------*/
+
+header {
+    background: #4d4d4d;
+    padding: 1em 0;
+    position: relative;
+}
+
+/*------------------------------------------*/
+/* Allows multiple floats in same element   */
+/*------------------------------------------*/
+
+header::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/*--------------------------------------*/
+/*               LOGO                   */
+/*--------------------------------------*/
+
+.logo #logo-first {                  /* Effects the whole logo, but #logo-last has changes */
+    float: left;                    /* Starting position of "JASON" for logo */
+    color: #00b3b3;
+    font-size: 1rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.logo #logo-last {      /* Changes to the logo for "SUTTON", This is starting Position */
+    float: left;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #f2f2f2;
+    padding-bottom: 20px;
+}
+
+.logo:hover #logo-last {    /* Logo colors switch on hover */
+    margin: 0;
+    color: #00b3b3;
+}
+
+.logo:hover #logo-first {     /* Logo colors switch on hover */
+    margin: 0;
+    padding-bottom: 20px;
+    color: #f2f2f2;
+}
+
+/*--------------------------------------*/
+/*            Navigation                */
+/*--------------------------------------*/
+.site-nav {
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    background: #a6a6a6;
+    height: 0px;
+    overflow: hidden;
+}
+
+.site-nav-open {
+    height: auto;
+}
+
+.site-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;  /* Removes li bullets */
+}
+
+.site-nav li {
+    border-bottom: 1px solid #8c8c8c;  /* border beneath nav li */
+}
+
+.site-nav li:last-child {     /* removes border from last nav li */
+    border: none;
+}
+
+.site-nav a {            /* Displays nav links as block for smaller screens */
+    color: #f2f2f2;
+    display: block;
+    padding: 2em 2em 2em 1.5em;  /* padding for links */
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.site-nav a:hover,         /* hover is for computers and focus is for mobile */
+.site-nav a:focus {
+    background: #00b3b3;
+    color: #4d4d4d;
+}
+
+/*--------------------------------------*/
+/*   ICON styling for smaller screens   */
+/*--------------------------------------*/ 
+
+.site-nav-icon  {
+    display: inline-block;   /* allows margin changes */
+    font-size: 1.5em;
+    margin-right: 1em;
+    width: 1em;           /* width lines the icons up */
+    text-align: right;  
+    color: rgba(255, 255, 255, .35);  /* white with low opacity to make icons less bright */
+}
+
+/*--------------------------------------*/
+/* Acts as btn & contains hamburger     */
+/*--------------------------------------*/
+
+.menu-toggle {
+    padding: 1em;
+    position: absolute;
+    top: 1.7em;
+    right: 1em;
+    cursor: pointer;
+}
+
+
+/*--------------------------------------*/
+/*   Styles the hamburger for btn       */
+/*--------------------------------------*/
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content:'';
+    display: block;
+    background: #00b3b3;
+    height: 3px;
+    width: 1.75em;
+    border-radius: 2px;
+    transition: all ease-in-out 500ms;
+}
+
+/*--------------------------------------*/
+/* Instance of hamburger (top line)     */
+/*--------------------------------------*/
+
+.hamburger::before {
+    transform: translateY(-7px);
+}
+
+/*--------------------------------------*/
+/* Instance of hamburger bottom line    */
+/*--------------------------------------*/
+
+.hamburger::after {
+    transform: translateY(4px);
+}
+
+/*--------------------------------------*/
+/* When Nav menu is open, hamburger = X */
+/*--------------------------------------*/
+
+.open .hamburger {
+    transform: rotate(45deg);
+    background: #ffc299;
+}
+
+/*--------------------------------------*/
+/* Before hamburger line is invisible   */
+/*--------------------------------------*/
+.open .hamburger::before {
+    opacity: 0;            
+}
+
+/*--------------------------------------*/
+/* Animates after line to create an X   */
+/*--------------------------------------*/
+.open .hamburger::after {
+    transform: translateY(-3px) rotate(-90deg);
+    background: #ffc299;
+}
+
+
+
+
+/*--------------------------------------*/
+/*    For Device (Screens > 700px )     */
+/*--------------------------------------*/
+@media (min-width:700px) {
+
+    .menu-toggle {       /* Removes hamburger menu */
+        display: none;
+    }
+
+    .site-nav {         /* Positions site nav & removes background color */
+        height: auto;
+        position: relative;
+        background: transparent;
+        float: right;
+        font-weight: 300;
+    }
+
+    .site-nav li {               /* inline-block and removes border from bottom */
+        display: inline-block;
+        border: none;
+    }
+
+    .site-nav a {       /* Adds spacing between Nav links */
+        padding: 0;
+        margin-left: 3em;
+    }
+
+    .site-nav a:hover,      /* Makes link background transparent on hover */
+    .site-nav a:focus {        /* Changes font color to light blue */
+        background: transparent;
+        font-weight: 800;
+        color: #00b3b3;
+    }
+
+    .site-nav .site-nav-icon {     /* Removes Font Awesome Icons for larger screens */
+        display: none;
+    }
+
+}
+
+body{
+margin:0;
+overflow-x:hidden;
+}
+
+.footer{
+background:#4D4D4D;
+padding:30px 0px;
+text-align:center;
+}
+
+.footer .row{
+width:100%;
+margin:1% 0%;
+padding:0.6% 0%;
+color:rgb(255, 255, 255);
+font-size:0.8em;
+}
+
+.footer .row a{
+text-decoration:none;
+color:rgb(255, 255, 255);
+transition:0.5s;
+}
+
+.footer .row a:hover{
+color:#00b3b3;
+}
+
+.footer .row ul{
+width:100%;
+}
+
+.footer .row ul li{
+display:inline-block;
+margin:0px 30px;
+}
+
+.footer .row a i{
+font-size:2em;
+margin:0% 1%;
+}
+
+@media (max-width:720px){
+.footer{
+text-align:left;
+padding:5%;
+}
+.footer .row ul li{
+display:block;
+margin:10px 0px;
+text-align:left;
+}
+.footer .row a i{
+margin:0% 3%;
+}
+}
